@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case study | Janai Sodiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="index.html"><i>J</i>Janai Digital</a>
+    <ul class="links" style="display:flex;position:static;flex-direction:row;padding:0;border:0;background:none">
+      <li><button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">◐</button></li>
+      <li><a class="btn btn-primary" style="padding:9px 18px" href="index.html#contact">Hire me</a></li>
+    </ul>
+  </nav>
+</header>
+<main><section><div class="wrap case" id="out"></div></section></main>
+<script>
+// Edit this object to add numbers, screenshots and detail as you gather them.
+const C={
+adaeze:{t:'Adaeze, a Telegram chatbot with a Lagos voice',s:'Flagship demo bot built on n8n, Groq LLaMA 3 and Google Sheets.',p:'Generic chatbots forget the conversation and sound nothing like the people they serve. I wanted a bot that keeps context and talks the way a Lagos local would.',b:['Telegram Trigger receives each message sent to @HttpsConnectLagosBot.','Conversation memory keeps recent messages so follow-ups make sense.','Groq LLaMA 3 writes the reply in a culturally authentic Lagos tone.','Google Sheets stores the chat and any details captured during the conversation.','The reply goes back through Telegram.'],k:['n8n','Groq','LLaMA 3','Google Sheets','Telegram'],r:['Live','public demo you can message now'],l:'https://t.me/HttpsConnectLagosBot',ll:'Chat with Adaeze'},
+onboarding:{t:'Business Onboarding Automation',s:'Form submission to confirmation email with no manual steps.',p:'New client onboarding meant reading forms by hand and sending confirmations one by one.',b:['A form submission starts the workflow.','A Groq email agent processes the details.','Gmail sends the confirmation and notifies the business.'],k:['n8n','Groq','Gmail API'],r:['0','manual steps']},
+'knowledge-pipeline':{t:'Document Reader and Knowledge Pipeline',s:'Turns Google Drive files into searchable vectors.',p:'Documents sat in Drive where nobody could search them by meaning.',b:['The workflow searches Google Drive and downloads files.','Google Gemini creates embeddings for each document.','Vectors are stored in Pinecone for instant retrieval.'],k:['n8n','Google Drive','Gemini','Pinecone'],r:['60%','time saved, 10+ docs per run']},
+'rag-chat':{t:'RAG Chat System',s:'An AI agent that answers only from your documents.',p:'Teams lose time searching documents, and AI tools that invent answers cannot be trusted.',b:['An n8n AI Agent receives the question.','HuggingFace embeddings search the Pinecone vector store.','Groq writes an answer using only the retrieved documents, with source attribution and audit logging.'],k:['n8n','Groq','Pinecone','HuggingFace'],r:['95%+','accuracy, zero hallucinations']},
+'sales-lead-bot':{t:'Automated Sales Lead Bot',s:'AI scoring and routing for incoming leads.',p:'Reviewing every incoming lead by hand took 5 to 10 minutes each.',b:['Groq AI scores each lead.','Deduplication removes repeats.','Switch nodes route leads to the right branch and sync to ClickUp.','Gmail sends follow-up and notifications.'],k:['n8n','Groq','ClickUp','Gmail API'],r:['70%','less manual work, under 60 seconds per lead']},
+novacore:{t:'NovaCore Policy Advisor',s:'Instant policy answers for employees.',p:'Staff spent time hunting through internal policy documents for simple answers.',b:['An AI agent connects to the policy Google Docs.','Groq writes answers grounded in those documents.','Simple Memory keeps context across the chat.'],k:['n8n','Groq','Google Docs','Simple Memory'],r:['2-3h','saved per week, 100% document-grounded']},
+'student-portal':{t:'Smart Student Application Portal',s:'Applications filtered, qualified and routed automatically.',p:'Enrollment teams were slow to respond because every application needed manual review.',b:['Applications pass through multi-stage decision nodes.','Qualified submissions get personalised emails through Gmail.','Records update automatically in ClickUp.'],k:['n8n','Gmail API','Switch node','ClickUp'],r:['<3min','response time, 50% less admin work']}
+};
+const el=document.getElementById('out'),id=location.hash.slice(1),c=C[id];
+if(c){
+  document.title=c.t+' | Janai Sodiya';
+  el.innerHTML='<a class="back" href="index.html#work">Back to projects</a><h1>'+c.t+'</h1><p class="lead">'+c.s+'</p>'
+  +'<h2>The problem</h2><p class="lead" style="margin-top:0">'+c.p+'</p>'
+  +'<h2>How it works</h2><ul>'+c.b.map(x=>'<li>'+x+'</li>').join('')+'</ul>'
+  +'<h2>Stack</h2><div class="tag">'+c.k.map(x=>'<span>'+x+'</span>').join('')+'</div>'
+  +'<div class="big"><b>'+c.r[0].replace('<','&lt;')+'</b><span>'+c.r[1]+'</span></div>'
+  +'<div class="cta">'+(c.l?'<a class="btn btn-tg" href="'+c.l+'" target="_blank" rel="noopener">'+c.ll+'</a>':'')+'<a class="btn btn-primary" href="index.html#contact">Build something like this</a></div>';
+}else{
+  document.title='Case studies | Janai Sodiya';
+  el.innerHTML='<h1>Case studies</h1><ul style="margin-top:24px">'+Object.keys(C).map(k=>'<li><a href="#'+k+'">'+C[k].t+'</a></li>').join('')+'</ul>';
+}
+addEventListener('hashchange',()=>location.reload());
+</script>
+</body>
+</html>
