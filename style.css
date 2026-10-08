@@ -206,3 +206,9 @@ html[data-theme=dark] .hero:before,html[data-theme=dark] .hero:after{opacity:.16
 /* dark mode fix: phone mockup keeps dark text on its light bubbles */
 .phone .screen,.phone .tg-top,.phone .msg{color:#12161C}
 .tg-top small{color:#586072}
+
+/* dark mode colour fixes: nav button text, form focus, button border */
+.links a.btn{color:#12161C}
+.btn-primary{border-color:#12161C}
+input:focus,select:focus,textarea:focus{background:var(--card);color:var(--ink)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
