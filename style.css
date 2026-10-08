@@ -202,3 +202,7 @@ html[data-theme=dark] .hero:before,html[data-theme=dark] .hero:after{opacity:.16
 .reach span{display:grid;line-height:1.35;color:var(--muted);font-size:15px}.reach b{color:var(--ink)}
 .btn:disabled{opacity:.6;cursor:wait}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.node,.marquee div,.hero:before,.hero:after{animation:none}}
+
+/* dark mode fix: phone mockup keeps dark text on its light bubbles */
+.phone .screen,.phone .tg-top,.phone .msg{color:#12161C}
+.tg-top small{color:#586072}
